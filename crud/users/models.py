@@ -13,7 +13,7 @@ class User(models.Model):
     email = models.EmailField(max_length=80)
     active = models.BooleanField(default=True)
     type_user = models.CharField(max_length=9, choices=USER_TYPE, default='User')
-    
+    photo = models.ImageField(upload_to='images/',default='images/default/no-img.jpg')
 
     def __str__(self) -> str:
         return f"{self.name}, {self.last_name}"

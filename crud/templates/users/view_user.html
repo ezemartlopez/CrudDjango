@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title-add %}
+<div class="container mt-3">
+    <a class="btn btn-primary" href="{% url 'index' %}" role="button">Volver</a>
+</div>
+{% endblock title-add %}
+
+
+{% block content %}
+<div class="container">
+    <div class="row my-5">
+        <div class="col "></div>
+        <div class="col text-center">
+            {% include 'components/card.html' %}
+        </div>
+        <div class="col "></div>
+    </div>
+</div>
+{% endblock content %}

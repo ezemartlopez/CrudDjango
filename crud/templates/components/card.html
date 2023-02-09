@@ -1,0 +1,24 @@
+<div class="card" style="width:100%">
+  <div class="container-fluid">
+    <img class="card-img-top rounded-circle" src="{{user.photo.url}}" alt="Card image" style="width:70%">  
+  </div>
+  
+  <div class="card-body">
+    <h4 class="card-title">{{user}} </h4>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">Nombres</span>
+      <input type="text" class="form-control" placeholder="{{user.name}}" aria-label="Username" aria-describedby="basic-addon1" disabled>
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">Apellidos</span>
+      <input type="text" class="form-control" placeholder="{{user.last_name}}" aria-label="Username" aria-describedby="basic-addon1" disabled>
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">Email</span>
+      <input type="text" class="form-control" placeholder="{{user.email}}" aria-label="Username" aria-describedby="basic-addon1" disabled>
+    </div>
+
+    <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+    <a href="#" class="btn btn-primary">Editar Contacto</a>
+  </div>
+</div>

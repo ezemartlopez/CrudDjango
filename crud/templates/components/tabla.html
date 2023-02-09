@@ -15,27 +15,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-            <td>
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something" >
-              </div>
-          </td>
-          <td>Activo</td>
-          <td>
-          <img src="https://picsum.photos/id/237/200/300" class="rounded-circle" alt="Cinque Terre" width="30" height="30"> 
-          John Doe
-          </td>
-          <td>john@example.com</td>
-          <td>Admin</td>
-          <td>
-            <div class="btn-group btn-group-sm" role="group" aria-label="Basic mixed styles example">
-              <button type="button" class="btn btn-primary"><a class="page-link"  href="{% url 'user_view' id=2 %}">Ver</a></button>
-              <button type="button" class="btn btn-warning"><a class="page-link"  href="{% url 'user_view' id=2 %}">Editar</a></button>
-              <button type="button" class="btn btn-danger"><a class="page-link"  href="{% url 'user_view' id=2 %}">Borrar</a></button>
-            </div>
-          </td>
-        </tr>
+        {% for user in users %}
 
         <tr>
             <td>
@@ -43,24 +23,22 @@
                 <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something" >
               </div>
           </td>
-          <td>Activo</td>
-          <td><img src="https://picsum.photos/id/236/200/300" class="rounded-circle" alt="Cinque Terre" width="30" height="30"> Mary Moe</td>
-          <td>mary@example.com</td>
-          <td>Admin</td>
-          <td>....</td>
-        </tr>
-        <tr>
-            <td>
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="check1" name="option1" value="something" >
-              </div>
+          <td>{% if user.active %}Activo{% else %}Inactivo{% endif %}</td>
+          <td>
+          <img src="{{user.photo.url}}" class="rounded-circle" alt="Cinque Terre" width="30" height="30"> 
+          {{user}}
           </td>
-          <td>Inactivo</td>
-          <td><img src="https://picsum.photos/id/238/200/300" class="rounded-circle" alt="Cinque Terre" width="30" height="30"> July Dooley</td>
-          <td>july@example.com</td>
-          <td>Admin</td>
-          <td>....</td>
+          <td>{{user.email}}</td>
+          <td>{{user.type_user}} </td>
+          <td>
+            <div class="btn-group btn-group-sm" role="group" aria-label="Basic mixed styles example">
+              <button type="button" class="btn btn-primary"><a class="page-link"  href="{% url 'user_view' id=user.id %}">Ver</a></button>
+              <button type="button" class="btn btn-warning"><a class="page-link"  href="{% url 'user_edit' id=user.id %}">Editar</a></button>
+              <button type="button" class="btn btn-danger"><a class="page-link"  href="{% url 'user_delete' id=user.id %}">Borrar</a></button>
+            </div>
+          </td>
         </tr>
+        {% endfor %}
       </tbody>
     </table>
   </div>
