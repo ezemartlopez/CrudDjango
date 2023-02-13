@@ -1,5 +1,4 @@
 from django.db import models
-
 USER_TYPE =(
     ('Admin','admin'),
     ('User','user'),
@@ -14,6 +13,9 @@ class User(models.Model):
     active = models.BooleanField(default=True)
     type_user = models.CharField(max_length=9, choices=USER_TYPE, default='User')
     photo = models.ImageField(upload_to='images/',default='images/default/no-img.jpg')
-
+    date_created = models.DateField(auto_now=True)
     def __str__(self) -> str:
-        return f"{self.name}, {self.last_name}"
+        return f"{self.name} {self.last_name}"
+
+    def get_date(self):
+        return f"{self.date_created.day}/{self.date_created.month}/{self.date_created.year}"
