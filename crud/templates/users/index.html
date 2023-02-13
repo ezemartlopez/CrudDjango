@@ -1,16 +1,36 @@
-{% extends 'base.html' %}
 
-{% block title-add %}
-    {% include 'components/title-add.html' %}
-{% endblock title-add %}
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block set_bootstrap %}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+{% endblock set_bootstrap %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock styles %}
 
 
 {% block content %}
-    {% include 'components/tabla.html' %}
+    <div class="container">
+        <div class="table-responsive">
+            <div class="table-wrapper">
+                {% include 'components/table-title.html' %}
+                {% include 'components/table.html' %}
+                {% include 'components/pagination.html' %}
+            </div>
+        </div>        
+    </div> 
 {% endblock content %}
 
-{% block pagination %} 
-    {% include 'components/paginacion.html' %}
-{% endblock pagination %}
-
+{% block scripts %}
+    <script src="{% static 'scripts/script.js' %}"></script>
+{% endblock scripts %}
 
