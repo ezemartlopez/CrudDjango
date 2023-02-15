@@ -1,16 +1,15 @@
 <div class="container text-center">
   <div class="row justify-content-center">
-      <div class="col-xl-4 col-md-4 mb-3 mb-lg-5">
-            <!--Card-->
-            <div class="card overflow-hidden text-center">
-              
-      
+      <div class="col-xxl-5 col-xl-5 col-lg-6 col-md-8 col-sm-10 mb-3">
+          <!--Card-->
+          <div class="card overflow-hidden text-center">
               <!--Card body-->
               <div class="card-body p-0">
                 <!--avatar-->
                 <a href="#!.html" class="avatar xl rounded-circle bg-gray bg-opacity-10 p-1 position-relative mt-n5 d-block mx-auto">
                   <img src="{{user.photo.url}}" class="avatar-img img-fluid rounded-circle" alt="" width="250" height="250">
                 </a>
+
                 <h5 class="mb-0 pt-3">
                   <a href="#!.html" class="text-reset">{{user}}</a>
                 </h5>
@@ -59,13 +58,15 @@
                   </li>
                   <li class="list-group-item px-3 d-flex align-items-center justify-content-between">
                     <span class="text-muted small d-flex align-items-center"></span>
-                    <div class="text-end">
-                      <a href="{% url 'index' %}" class="btn btn-sm btn-primary">Volver</a>
-                    </div>
+                    
                   </li>
                 </ul>
               </div>
-            </div>
-          </div>    
-        </div>
+          </div>
+          <div class="text-end">
+            <a href="{% url 'index' %}" class="btn btn-sm btn-primary">Volver</a>
+          </div>   
       </div>
+  </div>
+  
+</div>
