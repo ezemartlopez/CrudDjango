@@ -11,7 +11,7 @@ class UserForm(ModelForm):
             'email':EmailInput(attrs={'type':'text','placeholder':'Ingrese el Email', 'class':'form-control'}),
             'active':CheckboxInput(attrs={'type':'checkbox', 'class':'form-check-input'}),
             'type_user':Select(attrs={'type':'select', 'class':'form-select'},choices=USER_TYPE),
-            'photo':FileInput(attrs={'type':'file','class':'form-control'}),
+            'photo':FileInput(attrs={'type':'file','id':'seleccionArchivos','class':'form-control'}),
             'date_created':DateInput(attrs={'type':'date'})
 
 
