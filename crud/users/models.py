@@ -14,6 +14,8 @@ class User(models.Model):
     type_user = models.CharField(max_length=9, choices=USER_TYPE, default='User')
     photo = models.ImageField(upload_to='images/',default='images/default/no-img.jpg')
     date_created = models.DateField(auto_now=True)
+    address = models.CharField(max_length=40,blank=True,null=True)
+    phone = models.CharField(max_length=20,blank=True,null=True)
     def __str__(self) -> str:
         return f"{self.name} {self.last_name}"
 

@@ -7,7 +7,7 @@ from django.contrib import messages
 def index(req):
     users = User.objects.all()
     context = {'users':users}
-    return render(req,'users/index.html',context)
+    return render(req,'users/index-v1.html',context)
 
 
 def create(req):

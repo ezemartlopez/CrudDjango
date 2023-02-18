@@ -1,9 +1,8 @@
-*{padding: 0; margin:0;}
-#top-img-container{
-    height: 80px;
-}
-#bottom-img-container{
-    height: 120px;
+.container-card{
+    min-width: 400px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .container-img{
     width: 180px;
@@ -11,7 +10,7 @@
     margin-left: auto;
     margin-right: auto;
 } 
-img{
+.img-profile{
     object-fit: cover;
     width: 100%;
     height: 100%;
@@ -19,4 +18,9 @@ img{
     min-height: 180px;
     max-width: 180px;
     max-height: 180px;
+    border-radius: 50%;
+}
+
+br{
+    width: 2px;
 }

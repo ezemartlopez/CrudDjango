@@ -1,0 +1,68 @@
+	<!-- View Modal HTML -->
+	{# Ver a un usuario #}
+<div class="container-card">
+	<div id="viewEmployeeModal" >
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form>
+					<div class="modal-header">
+                        <div class="w3-cell-row">
+                            <div class="w3-container w3-cell">				
+    						    <h4 class="modal-title">View Employee</h4>
+                            </div>
+                            <div class="w3-container w3-cell">				
+    						    <a href="{% url 'index' %}" target="_parent">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times;</button>
+                                </a>
+                            </div>
+                        </div>
+					</div>
+                    <div class="container-img">
+                        <img src="{{user.photo.url}}" id="imagenPrevisualizacion" class="img-profile" alt="foto">
+                    </div>
+
+                    <div class="w3-conatiner w3-center">
+                        {% if user.active %}
+                            <span class="status text-success"> &bull; </span> Active
+                        {% else %}
+                            <span class="status text-warning"> &bull; </span> Inactive
+                        {% endif %}
+                    </div>
+
+					<div class="modal-body">
+                        <div class="input-group">
+                            <span class="input-group-addon">Name: </span>
+                            <input type="text" class="form-control" placeholder="{{user}}" aria-describedby="basic-addon1" disabled>
+                        </div>
+                        
+                        <div class="input-group">
+                            <span class="input-group-addon">Email:</span>
+                            <input type="text" class="form-control" placeholder="{{user.email}}" aria-describedby="basic-addon1" disabled>
+                        </div>
+                        
+                        <div class="input-group">
+                            <span class="input-group-addon">Role:</span>
+                            <input type="text" class="form-control" placeholder="{{user.type_user}}" aria-describedby="basic-addon1" disabled>
+                        </div>
+                        
+                        <div class="input-group">
+                            <span class="input-group-addon">Address:</span>
+                            <input type="text" class="form-control" placeholder="{{user.address}}" aria-describedby="basic-addon1" disabled>
+                        </div>
+                        
+                        <div class="input-group">
+                            <span class="input-group-addon">Phone:</span>
+                            <input type="text" class="form-control" placeholder="{{user.phone}}" aria-describedby="basic-addon1" disabled>
+                        </div>
+                        
+                        <div class="input-group">
+                            <span class="input-group-addon">Created:</span>
+                            <input type="text" class="form-control" placeholder="{{user.get_date}}" aria-describedby="basic-addon1" disabled>
+                        </div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+	{# Fin Ver a un Usuario #}

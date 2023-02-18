@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/table_style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/modal.css' %}">
+    <link rel="stylesheet" href="{% static 'css/img_style.css' %}">
+{% endblock styles %}
+
+{% block content %}
+    {% include 'components/table-v1.html' %}
+{% endblock content %}
+
+{% block scripts %}
+    <script src="{% static 'scripts/table.js' %}"></script>
+{% endblock scripts %}
