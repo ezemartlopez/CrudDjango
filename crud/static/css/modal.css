@@ -27,6 +27,7 @@ body {
     box-shadow: none;
     border-color: #dddddd;
 }
+
 .modal textarea.form-control {
     resize: vertical;
 }
@@ -53,3 +54,10 @@ div .input-group{
     padding-bottom:10px;
 }
 
+.checkboxes {
+    align-items: center;
+    vertical-align: middle;
+    word-wrap: break-word;
+    width: 1.4rem;
+    height: 1.4rem;
+  }
