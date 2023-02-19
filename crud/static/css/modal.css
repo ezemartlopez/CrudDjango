@@ -37,7 +37,10 @@ body {
 .modal form label {
     font-weight: normal;
 }
-
+div .modal-dialog{
+    max-width: 400px;
+    min-width: 400px;
+}
 div .modal-content{
     max-width: 400px;
     min-width: 400px;
