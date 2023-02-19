@@ -1,9 +1,13 @@
+.gradient-color{
+    background-image: linear-gradient(to bottom, #1721f5, #0076ff, #00a5ff, #00cbff, #12ebe7);
+}
 .container-card{
     min-width: 400px;
     max-width: 400px;
     margin-left: auto;
     margin-right: auto;
 }
+
 .container-img{
     width: 180px;
     height: 180px;
@@ -21,6 +25,23 @@
     border-radius: 50%;
 }
 
-br{
-    width: 2px;
+/*status user*/
+.status {
+    font-size: 30px;
+    margin: 2px 2px 0 0;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 10px;
+}
+.text-success {
+    color: #10c469;
+}
+.text-info {
+    color: #62c9e8;
+}
+.text-warning {
+    color: #FFC107;
+}
+.text-danger {
+    color: #ff5b5b;
 }
