@@ -5,59 +5,50 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<form>
-					<div class="modal-header">
-                        <div class="w3-cell-row">
-                            <div class="w3-container w3-cell">				
-    						    <h4 class="modal-title">View Employee</h4>
-                            </div>
-                            <div class="w3-container w3-cell">				
-    						    <a href="{% url 'index' %}" target="_parent">
-                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times;</button>
-                                </a>
+                    <div class="">
+                        <div class="modal-header ">
+                            <div class="w3-cell-row">
+                                <div class="w3-container w3-cell">				
+                                    <h4 class="modal-title">View Employee</h4>
+                                </div>
+                                <div class="w3-container w3-cell">				
+                                    <a href="{% url 'index' %}" target="_parent">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times;</button>
+                                    </a>
+                                </div>
                             </div>
                         </div>
-					</div>
-                    <div class="container-img">
-                        <img src="{{user.photo.url}}" id="imagenPrevisualizacion" class="img-profile" alt="foto">
+                        <div class="container-card">
+                            <div class="container-img">
+                                <img src="{{user.photo.url}}" id="imagenPrevisualizacion" class="img-profile" alt="foto">
+                            </div>
+                        </div>
                     </div>
-
                     <div class="w3-conatiner w3-center">
                         {% if user.active %}
-                            <span class="status text-success"> &bull; </span> Active
+                            <span style="font-size:25px;" class="status text-success">&#8226;</span>
+                            <span style='font-size:15px;' class="status text-success">Active</span>
                         {% else %}
-                            <span class="status text-warning"> &bull; </span> Inactive
+                            <span style="font-size:25px;" class="status text-warning">&#8226;</span>
+                            <span style='font-size:15px;' class="status text-warning">Inactive</span>
                         {% endif %}
                     </div>
 
 					<div class="modal-body">
-                        <div class="input-group">
-                            <span class="input-group-addon">Name: </span>
-                            <input type="text" class="form-control" placeholder="{{user}}" aria-describedby="basic-addon1" disabled>
+
+                        <div class="w3-cell-row">
+                            <div class="w3-container w3-left-align w3-margin-left">
+                                <p><span class="glyphicon glyphicon-user"></span> Name: {{user}}</p> 
+                                <p><span class="glyphicon glyphicon-envelope"></span> Email: {{user.email}}</p>
+                                <p><span class="glyphicon glyphicon-home"></span> Address: {{user.address}}</p>    
+                                <p><span class="glyphicon glyphicon-earphone"></span> Phone: {{user.phone}} </p>
+                                <p><span class="glyphicon glyphicon-wrench"></span> Role: {{user.type_user}} </p>    
+                                <p><span class="glyphicon glyphicon-calendar"></span> Created Date: {{user.get_date}} </p>
+                            </div>
                         </div>
-                        
-                        <div class="input-group">
-                            <span class="input-group-addon">Email:</span>
-                            <input type="text" class="form-control" placeholder="{{user.email}}" aria-describedby="basic-addon1" disabled>
-                        </div>
-                        
-                        <div class="input-group">
-                            <span class="input-group-addon">Role:</span>
-                            <input type="text" class="form-control" placeholder="{{user.type_user}}" aria-describedby="basic-addon1" disabled>
-                        </div>
-                        
-                        <div class="input-group">
-                            <span class="input-group-addon">Address:</span>
-                            <input type="text" class="form-control" placeholder="{{user.address}}" aria-describedby="basic-addon1" disabled>
-                        </div>
-                        
-                        <div class="input-group">
-                            <span class="input-group-addon">Phone:</span>
-                            <input type="text" class="form-control" placeholder="{{user.phone}}" aria-describedby="basic-addon1" disabled>
-                        </div>
-                        
-                        <div class="input-group">
-                            <span class="input-group-addon">Created:</span>
-                            <input type="text" class="form-control" placeholder="{{user.get_date}}" aria-describedby="basic-addon1" disabled>
+                        <div class="modal-footer">
+                            <a href="" class="btn btn-warning"> Edit</a>
+                            <a href="" class="btn btn-danger"> Delete</a>
                         </div>
 					</div>
 				</form>
