@@ -2,11 +2,14 @@
 
 {% load static %}
 
+{% block pre_styles %}
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+{% endblock pre_styles %}
+
 {% block styles %}
     <link rel="stylesheet" href="{% static 'css/table_style.css' %}">
     <link rel="stylesheet" href="{% static 'css/modal.css' %}">
     <link rel="stylesheet" href="{% static 'css/img_style.css' %}">
-    
 {% endblock styles %}
 
 {% block content %}
