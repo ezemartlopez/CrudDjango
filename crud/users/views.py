@@ -6,7 +6,9 @@ from django.contrib import messages
 # Create your views here.
 def index(req):
     users = User.objects.all()
-    context = {'users':users}
+    form = UserForm()
+    url_img = '/media/images/default/no-img.png'
+    context = {'users':users,'form':form,'url_img':url_img}
     return render(req,'users/index-v1.html',context)
 
 
@@ -62,7 +64,7 @@ def edit(req, id):
         return render(req, 'users/edit_user.html',context)
 
 
-def delete(req, id):
+def delete(req,id):
     #Obtengo el usuario con ese id
     user = User.objects.get(id=id)
     #Elimino ese usuario, pero antes elimino la foto asociada en la carpeta media/images

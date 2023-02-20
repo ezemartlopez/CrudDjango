@@ -1,9 +1,9 @@
-<div id="editEmployeeModal" class="">
-    <div class="modal-dialog">
+<div id="editEmployeeModal" class="container">
+    <div class="modal-dialog align_center">
         <div class="modal-content">
             <form action="{% url 'user_edit' id=id %}" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
-                <div class="">
+                <div class="w3-center">
                     <div class="modal-header ">
                         <div class="w3-cell-row">
                             <div class="w3-container w3-cell">				
@@ -52,9 +52,8 @@
                         {{form.photo}}
                     </div>
                     <div class="form-group">
-                        <label>State User </label>
+                        <label>State User</label>
                         {{form.active}}
-                        
                     </div>					
                 </div>
                 <div class="modal-footer">
