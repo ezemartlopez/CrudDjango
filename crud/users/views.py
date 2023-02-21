@@ -1,25 +1,62 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from .models import User
 from .forms import UserForm
 from django.contrib import messages
+from .utilities import calculate_users_page
+from django.core.paginator import Paginator
+
 # Create your views here.
 def index(req):
+    #obtengo todos los usuarios
     users = User.objects.all()
-    form = UserForm()
-    url_img = '/media/images/default/no-img.png'
-    context = {'users':users,'form':form,'url_img':url_img}
+    ###Seccion pagination
+    #creo la paginacion indicando que quiero 5 contactos por pagina
+    users_by_page = 5
+    paginator = Paginator(users,users_by_page)
+    page_number = req.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    ###Fin Seccion pagination
+
+    #Variables para el contexto
+    pages = paginator.num_pages
+    list_pages = range(1, pages+1)
+    total_users = len(users)
+    entries_by_page = calculate_users_page(total_users,users_by_page,page_obj.number)
+    #Fin variables para el contexto
+
+    context = {'total_users': total_users,'users_by_page':entries_by_page,'page_obj': page_obj, 'pages':list_pages}
     return render(req,'users/index-v1.html',context)
 
 
 def create(req):
     # Si hago un post de un nuevo usuario en create_user
     if req.method == 'POST':
-        print(req.POST)
-        form = UserForm(req.POST, req.FILES)
+        form = None
+        #Si existe una imagen adjunta, utilizo un flag
+        flag_img = False #hay imagen adjunta
+        if req.FILES:
+            form = UserForm(req.POST, req.FILES)
+            flag_img = True
+        else:
+            form = UserForm(req.POST)
+        
         if form.is_valid():
-            #si es valido guardo el nuevo usuario
-            form.save()
+            #si es valido los campos del formulario
+            if flag_img:
+                #guardo el formulario con la imagen que se cargo
+                form.save()
+            else:
+                user = User()
+                #relleno los campos del usuario con el formulario
+                user.name = form.cleaned_data['name']
+                user.last_name = form.cleaned_data['last_name']
+                user.email = form.cleaned_data['email']
+                user.active = form.cleaned_data['active']
+                user.type_user = form.cleaned_data['type_user']
+                user.address = form.cleaned_data['address']
+                user.phone = form.cleaned_data['phone']
+                #guardo al usuario
+                user.save()
         #por ahora redirecciono a la pagina principal
         return redirect('index')
 
@@ -68,7 +105,9 @@ def delete(req,id):
     #Obtengo el usuario con ese id
     user = User.objects.get(id=id)
     #Elimino ese usuario, pero antes elimino la foto asociada en la carpeta media/images
-    user.photo.delete()
+    #esto podria eliminar la imagen por defecto controlo que no sea esa
+    if(user.photo.url != '/media/images/default/no-img.png'):
+        user.photo.delete()
     user.delete()
     #redirijo ala pagina principal
     return redirect('index')
