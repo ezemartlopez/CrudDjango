@@ -57,7 +57,9 @@ div .input-group{
     margin-left: auto;
     margin-right: auto;
 }
-
+.align_vertical_checkbox{
+    margin: 2rem 1rem 0 0;
+}
 .check_input{
     color: #566787;
     font-family: 'Verdana', 'sans-serif';
