@@ -12,7 +12,7 @@ class User(models.Model):
     email = models.EmailField(max_length=80)
     active = models.BooleanField(default=True)
     type_user = models.CharField(max_length=9, choices=USER_TYPE, default='User')
-    photo = models.ImageField(upload_to='images/',default='images/default/no-img.jpg')
+    photo = models.ImageField(upload_to='images/',default='images/default/no-img.png')
     date_created = models.DateField(auto_now=True)
     address = models.CharField(max_length=40,blank=True,null=True)
     phone = models.CharField(max_length=20,blank=True,null=True)
