@@ -16,12 +16,14 @@
 				{# Encabezado de tabla de usuarios #}
                 <thead>
                     <tr>
+						
 						<th>
 							<span class="custom-checkbox">
 								<input type="checkbox" id="selectAll">
 								<label for="selectAll"></label>
 							</span>
 						</th>
+						
                         <th>Name</th>
                         <th>Email</th>
 						<th>Role</th>
@@ -35,12 +37,14 @@
                 <tbody>
 					{% for user in page_obj %}
                     <tr>
+						
 						<td>
 							<span class="custom-checkbox">
 								<input type="checkbox" id="checkbox1" name="options[]" value="1">
 								<label for="checkbox1"></label>
 							</span>
 						</td>
+						
                         <td>
 							<img src="{{user.photo.url}}" class="avatar" alt="Avatar" width="25" height="25">
 							<a href="{% url 'user_view' id=user.id %}" class="name" data-toggle="modal">{{user}}</a>
